@@ -1,11 +1,14 @@
 using FluentValidation.AspNetCore;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 using System.Reflection;
 using UserManagement.Application;
 using UserManagement.Infrastructure;
+using UserManagement.Infrastructure.Persistence;
 using Work.Rabbi.Common.Api.Filters;
 using Work.Rabbi.Common.Api.Services;
 using Work.Rabbi.Common.Interfaces;
@@ -56,7 +59,29 @@ builder.Services.AddSingleton<ILoggedInUserService, LoggedinUserService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddOpenTelemetryTracing(
+    (builderTelemetry) => builderTelemetry
+        .AddAspNetCoreInstrumentation()
+        .AddHttpClientInstrumentation()
+        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("UserManagement.API"))
+        .AddJaegerExporter(j =>
+        {
+            j.AgentHost = builder.Configuration["Jaeger:AgentHost"];
+            j.AgentPort = Convert.ToInt32(builder.Configuration["Jaeger:AgentPort"]);
+        })
+    );
+
+// Sql server health check
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<ApplicationDbContext>("configuratiodbcontext");
+
 var app = builder.Build();
+
+// Migrate database
+//await app.MigrateDatabaseAsync<ApplicationDbContext>(async (context, services) =>
+//{
+//    await ConfigurationDbContextSeed.SeedAsync(context);
+//});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -71,4 +96,17 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+// Cofigure for health check
+app.MapHealthChecks("/hc", new HealthCheckOptions()
+{
+    Predicate = _ => true,
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+});
+
+//a basic health probe configuration that reports the app's availability to process requests (liveness) is sufficient to discover the status of the app.
+app.MapHealthChecks("/liveness", new HealthCheckOptions()
+{
+    Predicate = r => r.Name.Contains("self"),
+});
+
+await app.RunAsync();
