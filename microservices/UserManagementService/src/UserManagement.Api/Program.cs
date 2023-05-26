@@ -5,6 +5,7 @@ using Serilog;
 using Serilog.Sinks.Elasticsearch;
 using System.Reflection;
 using UserManagement.Application;
+using UserManagement.Infrastructure;
 using Work.Rabbi.Common.Api.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,9 +52,7 @@ builder.Services.AddControllers(options =>
 
 builder.Services
     .AddApplication()
-    //.AddInfrastructure(builder.Configuration, builder.Environment)
-    .AddRepositories()
-    .AddRedisCache(builder.Configuration);
+    .AddInfrastructure(builder.Configuration);
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

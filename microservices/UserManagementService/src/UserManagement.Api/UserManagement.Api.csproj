@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Work.Rabbi.Common.Api\Work.Rabbi.Common.Api.csproj" />
     <ProjectReference Include="..\..\..\Shared\Work.Rabbi.Common\Work.Rabbi.Common.csproj" />
     <ProjectReference Include="..\UserManagement.Application\UserManagement.Application.csproj" />
     <ProjectReference Include="..\UserManagement.Domain\UserManagement.Domain.csproj" />

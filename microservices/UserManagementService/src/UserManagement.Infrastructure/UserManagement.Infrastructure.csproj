@@ -23,4 +23,16 @@
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Work.Rabbi.Common.Infrastructure\Work.Rabbi.Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Work.Rabbi.Common\Work.Rabbi.Common.csproj" />
+    <ProjectReference Include="..\UserManagement.Domain\UserManagement.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Persistence\EfConfiguration\" />
+    <Folder Include="Repository\Command\" />
+    <Folder Include="Repository\Query\" />
+  </ItemGroup>
+
 </Project>

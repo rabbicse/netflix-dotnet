@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work.Rabbi.Common", "..\Sha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work.Rabbi.Common.Api", "..\Shared\Work.Rabbi.Common.Api\Work.Rabbi.Common.Api.csproj", "{74BEEC9D-9D7A-43DB-8CC4-5E8098C21E1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work.Rabbi.Common.Infrastructure", "..\Shared\Work.Rabbi.Common.Infrastructure\Work.Rabbi.Common.Infrastructure.csproj", "{8065655D-9B96-483E-9F69-E59C8C6CCC43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work.Rabbi.Common.Domain", "..\Shared\Work.Rabbi.Common.Domain\Work.Rabbi.Common.Domain.csproj", "{EBB4AFBC-0CF7-4574-B1BE-BA4DAE3A1D82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,14 @@ Global
 		{74BEEC9D-9D7A-43DB-8CC4-5E8098C21E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74BEEC9D-9D7A-43DB-8CC4-5E8098C21E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74BEEC9D-9D7A-43DB-8CC4-5E8098C21E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8065655D-9B96-483E-9F69-E59C8C6CCC43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8065655D-9B96-483E-9F69-E59C8C6CCC43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8065655D-9B96-483E-9F69-E59C8C6CCC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8065655D-9B96-483E-9F69-E59C8C6CCC43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBB4AFBC-0CF7-4574-B1BE-BA4DAE3A1D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB4AFBC-0CF7-4574-B1BE-BA4DAE3A1D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB4AFBC-0CF7-4574-B1BE-BA4DAE3A1D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB4AFBC-0CF7-4574-B1BE-BA4DAE3A1D82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +72,8 @@ Global
 		{E71A8EF8-6C85-483D-A2E1-119485CED83E} = {C05DEC26-B303-44A4-B24F-69D2BA30582C}
 		{BA25A6A9-5F39-4493-AC91-1E7C51F07B49} = {41E21FD1-61E3-48E3-A1BB-F9218604AE50}
 		{74BEEC9D-9D7A-43DB-8CC4-5E8098C21E1B} = {41E21FD1-61E3-48E3-A1BB-F9218604AE50}
+		{8065655D-9B96-483E-9F69-E59C8C6CCC43} = {41E21FD1-61E3-48E3-A1BB-F9218604AE50}
+		{EBB4AFBC-0CF7-4574-B1BE-BA4DAE3A1D82} = {41E21FD1-61E3-48E3-A1BB-F9218604AE50}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED502B8B-A824-4A89-BBC9-88825F8C306D}
