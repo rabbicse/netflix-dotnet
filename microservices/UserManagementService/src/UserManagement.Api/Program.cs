@@ -7,6 +7,8 @@ using System.Reflection;
 using UserManagement.Application;
 using UserManagement.Infrastructure;
 using Work.Rabbi.Common.Api.Filters;
+using Work.Rabbi.Common.Api.Services;
+using Work.Rabbi.Common.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,18 +36,8 @@ builder.Services.AddControllers(options =>
     {
         opt.SuppressModelStateInvalidFilter = true;
     })
-    .AddJsonOptions(jsonOptions =>
-    {
-        jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
-    })
-    .AddNewtonsoftJson(opt =>
-    {
-        opt.SerializerSettings.ContractResolver = new DefaultContractResolver();
-        opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-    })
     .AddFluentValidation(flv =>
     {
-        flv.RegisterValidatorsFromAssemblyContaining<Program>();
         flv.DisableDataAnnotationsValidation = true;
         flv.AutomaticValidationEnabled = false;
     });
@@ -54,6 +46,11 @@ builder.Services
     .AddApplication()
     .AddInfrastructure(builder.Configuration);
 
+builder.Services
+    .AddApplication()
+    .AddInfrastructure(builder.Configuration);
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<ILoggedInUserService, LoggedinUserService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

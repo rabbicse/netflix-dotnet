@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Work.Rabbi.Common.Infrastructure.Persistence;
 using Work.Rabbi.Common.Interfaces;
+using Worl.Rabbi.Common.Domain;
 
 namespace Work.Rabbi.Common.Infrastructure.Repository
 {

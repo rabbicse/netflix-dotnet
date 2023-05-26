@@ -15,9 +15,9 @@ namespace UserManagement.Application.QueryHandlers.User
     public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserDto>
     {
         private readonly IMapper _mapper;
-        private readonly IUserRepository _userRepository;
+        private readonly IUserCommandRepository _userRepository;
 
-        public GetUserByIdQueryHandler(IMapper mapper, IUserRepository identityRepository)
+        public GetUserByIdQueryHandler(IMapper mapper, IUserCommandRepository identityRepository)
         {
             _mapper = mapper;
             _userRepository = identityRepository;

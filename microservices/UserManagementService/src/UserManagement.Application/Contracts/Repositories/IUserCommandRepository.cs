@@ -2,7 +2,7 @@
 
 namespace UserManagement.Application.Contracts.Repositories
 {
-    public interface IUserRepository
+    public interface IUserCommandRepository
     {
         Task<bool> ExistsUserAsync(string userId);
         Task<IEnumerable<ApplicationUser>> GetUsersAsync(string search, int page = 1, int pageSize = 10);

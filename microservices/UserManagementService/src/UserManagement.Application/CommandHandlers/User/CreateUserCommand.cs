@@ -23,9 +23,9 @@ namespace UserManagement.Application.CommandHandlers.User
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserDto>
     {
         private readonly IMapper _mapper;
-        private readonly IUserRepository _userRepository;
+        private readonly IUserCommandRepository _userRepository;
 
-        public CreateUserCommandHandler(IMapper mapper, IUserRepository userRepository)
+        public CreateUserCommandHandler(IMapper mapper, IUserCommandRepository userRepository)
         {
             _mapper = mapper;
             _userRepository = userRepository;
