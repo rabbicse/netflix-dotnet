@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace IdentitySecurityTokenService.Application.Common.Extensions
+namespace Work.Rabbi.Common.Extensions
 {
     public static class QueryableExtensions
     {

@@ -1,4 +1,4 @@
-﻿namespace IdentitySecurityTokenService.Application.Common.Exceptions
+﻿namespace Work.Rabbi.Common.Exceptions
 {
     /// <summary>
     /// Customized Forbidden Access Exception

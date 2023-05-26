@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace IdentitySecurityTokenService.Application.Common.Exceptions
+namespace Work.Rabbi.Common.Exceptions
 {
     /// <summary>
     /// Customized Validation Exception foo ModelState

@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using IdentitySecurityTokenService.Application.Common.Exceptions;
 using MediatR;
 using UserManagement.Application.Contracts.Repositories;
 using UserManagement.Application.DTOs;
 using UserManagement.Domain.Entities;
+using Work.Rabbi.Common.Exceptions;
 
 namespace UserManagement.Application.QueryHandlers.User
 {

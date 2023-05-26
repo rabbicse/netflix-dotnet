@@ -1,4 +1,4 @@
-﻿namespace IdentitySecurityTokenService.Application.Common.Helpers
+﻿namespace Work.Rabbi.Common.Helpers
 {
     public static class DurationUnitChecker
     {

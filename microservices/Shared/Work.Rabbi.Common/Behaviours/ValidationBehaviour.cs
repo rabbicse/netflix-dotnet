@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 
-namespace IdentitySecurityTokenService.Application.Common.Behaviours
+namespace Work.Rabbi.Common.Behaviours
 {
     /// <summary>
     /// ASP.NET Core Model State validation behaviour using MeditR pipeline
